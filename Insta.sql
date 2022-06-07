@@ -190,7 +190,6 @@ SELECT utilisateurs.username, photos.url_photo from photos join utilisateurs on 
 --7. Trouver tous les commentaires pour la photo d'id 3, avec le username de l'utilisateur qui a commenté
 SELECT comments.commentaire, utilisateurs.username, photos.url_photo from comments join utilisateurs on comments.id_utilisateur = utilisateurs.id join photos on photos.id_utilisateur = utilisateurs.id where photos.id = 3;
 
--- SELECT manufacturer, SUM(units_sold*price)as chiffre_affaire from telephones group by manufacturer HAVING chiffre_affaire > 200000;
 -- 8 Trouver tous les url des photos ainsi que tous les commentaires qui ont été posté par l'auteur de la photo
 
 SELECT photos.url_photo, comments.commentaire from comments join photos on photos.id_utilisateur = utilisateurs.id where photos.id_utilisateur = comments.id_utilisateur;
