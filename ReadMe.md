@@ -9,6 +9,8 @@ utilisateurs-comments images-comments images-likes
 
 - Création de données avec https://www.mockaroo.com/
 
+- Pour les keys étrangers, s'assurer que les valeurs sont bien celle des primarys keys 
+
 # Pour tous les commentaires, montrer le contenu et le username de l'auteur
 # Pour chaque commentaire, afficher son contenu et l'url de la photo à laquel le commentaire a été ajouté
 # Afficher l'url de chaque photo et le nom d'utilisateur de l'auteur

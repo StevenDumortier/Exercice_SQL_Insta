@@ -19,7 +19,7 @@ CREATE TABLE photos(
 );
 CREATE TABLE likes(
     id integer auto_increment not null primary key,
-    like varchar(1),
+    likes varchar(1), -- like = 0 pas de like   like=1 alors il y a un like
     id_utilisateur integer,
     id_photo integer, 
     Foreign key (id_utilisateur) references utilisateurs(id) on delete set null,
@@ -96,87 +96,99 @@ insert into comments (id_utilisateur, id_photo, commentaire) values (10, 20, 'eu
 insert into comments (id_utilisateur, id_photo, commentaire) values (7, 23, 'proin risus praesent lectus vestibulum');
 insert into comments (id_utilisateur, id_photo, commentaire) values (3, 17, 'justo aliquam quis turpis eget elit sodales scelerisque mauris sit');
 
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 24, 'interdum mauris ullamcorper purus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (4, 13, 'nunc vestibulum ante ipsum primis in faucibus orci luctus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (5, 6, 'iaculis congue vivamus metus arcu adipiscing molestie hendrerit');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 8, 'ipsum praesent blandit lacinia erat');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 3, 'duis aliquam convallis nunc proin at turpis');
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 27, 'justo etiam pretium iaculis justo in hac habitasse platea dictumst');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 24, 'velit nec nisi vulputate nonummy maecenas tincidunt');
-insert into likes (id_utilisateur, id_photo, commentaire) values (7, 10, 'vulputate');
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 15, 'vel accumsan');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 14, 'tortor duis');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 16, 'sit amet eros suspendisse accumsan');
-insert into likes (id_utilisateur, id_photo, commentaire) values (2, 4, 'eu est congue elementum in');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 25, 'et magnis dis');
-insert into likes (id_utilisateur, id_photo, commentaire) values (5, 3, 'vestibulum ante ipsum');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 13, 'ipsum primis in faucibus orci luctus et ultrices posuere');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 24, 'in faucibus orci luctus et ultrices');
-insert into likes (id_utilisateur, id_photo, commentaire) values (5, 21, 'tempor');
-insert into likes (id_utilisateur, id_photo, commentaire) values (2, 8, 'metus sapien ut nunc vestibulum ante ipsum primis');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 8, 'quam suspendisse potenti nullam porttitor lacus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 22, 'erat eros viverra eget congue eget semper');
-insert into likes (id_utilisateur, id_photo, commentaire) values (5, 4, 'purus aliquet at feugiat non pretium quis lectus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (2, 10, 'ultrices aliquet maecenas');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 8, 'convallis nulla neque libero convallis eget eleifend');
-insert into likes (id_utilisateur, id_photo, commentaire) values (8, 23, 'porta volutpat quam pede lobortis ligula sit amet eleifend pede');
-insert into likes (id_utilisateur, id_photo, commentaire) values (9, 16, 'at nunc commodo placerat praesent blandit nam');
-insert into likes (id_utilisateur, id_photo, commentaire) values (4, 23, 'eget tincidunt eget');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 20, 'eleifend quam a');
-insert into likes (id_utilisateur, id_photo, commentaire) values (7, 28, 'proin leo odio porttitor');
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 5, 'in purus eu magna vulputate luctus cum sociis natoque penatibus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 9, 'faucibus orci luctus et');
-insert into likes (id_utilisateur, id_photo, commentaire) values (7, 29, 'leo odio porttitor');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 26, 'justo');
-insert into likes (id_utilisateur, id_photo, commentaire) values (8, 19, 'ipsum primis in faucibus orci luctus et ultrices posuere cubilia');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 13, 'turpis a pede posuere nonummy');
-insert into likes (id_utilisateur, id_photo, commentaire) values (7, 8, 'at dolor quis odio consequat varius integer');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 16, 'justo eu massa donec dapibus duis at');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 10, 'faucibus cursus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (5, 27, 'vehicula condimentum curabitur');
-insert into likes (id_utilisateur, id_photo, commentaire) values (4, 9, 'ante nulla');
-insert into likes (id_utilisateur, id_photo, commentaire) values (1, 26, 'nisi at');
-insert into likes (id_utilisateur, id_photo, commentaire) values (4, 28, 'in quam fringilla rhoncus mauris enim');
-insert into likes (id_utilisateur, id_photo, commentaire) values (4, 18, 'quis augue luctus tincidunt nulla mollis molestie lorem quisque');
-insert into likes (id_utilisateur, id_photo, commentaire) values (2, 29, 'in tempus sit amet sem fusce consequat');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 2, 'sodales scelerisque mauris');
-insert into likes (id_utilisateur, id_photo, commentaire) values (8, 6, 'sit amet erat nulla tempus vivamus in felis eu');
-insert into likes (id_utilisateur, id_photo, commentaire) values (10, 20, 'cubilia curae mauris viverra diam vitae quam suspendisse potenti');
-insert into likes (id_utilisateur, id_photo, commentaire) values (6, 4, 'lacinia eget tincidunt eget tempus vel');
-insert into likes (id_utilisateur, id_photo, commentaire) values (7, 19, 'elit proin interdum');
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 20, 'donec ut dolor morbi vel lectus');
-insert into likes (id_utilisateur, id_photo, commentaire) values (3, 17, 'id sapien in sapien');
+insert into likes (likes, id_utilisateur, id_photo) values (1, 5, 23);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 2, 28);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 6, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 5, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 7, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 8, 25);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 2, 1);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 9, 21);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 5, 3);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 3, 29);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 10, 9);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 3, 22);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 4, 5);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 5, 14);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 2, 20);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 27);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 10, 13);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 4, 11);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 7, 6);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 9, 9);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 10, 11);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 8, 12);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 4, 19);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 1, 5);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 5, 1);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 1, 16);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 4, 13);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 3, 7);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 10, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 25);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 2, 1);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 3, 10);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 20);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 7, 30);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 5, 2);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 2, 1);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 8, 8);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 4, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 30);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 5, 20);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 5, 10);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 5, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 6, 3);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 7, 15);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 4, 10);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 1, 28);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 9, 8);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 1, 16);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 2, 17);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 2, 4);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 9, 17);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 28);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 3, 18);
+insert into likes (likes, id_utilisateur, id_photo) values (0, 5, 21);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 6, 9);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 10, 26);
+insert into likes (likes, id_utilisateur, id_photo) values (1, 8, 16);
 
-insert into photos (id_utilisateur, nombre_like, url_photo) values (3, 50, 'https://robohash.org/quidemquisquamfacere.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (9, 140, 'https://robohash.org/sitsequiomnis.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (10, 919, 'https://robohash.org/omnisaliascupiditate.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (7, 457, 'https://robohash.org/beataevoluptaset.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (8, 113, 'https://robohash.org/natusporroest.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (5, 637, 'https://robohash.org/autinconsectetur.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (7, 943, 'https://robohash.org/dolorvelitquas.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (8, 971, 'https://robohash.org/recusandaequosaut.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (3, 765, 'https://robohash.org/aspernaturetet.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (10, 895, 'https://robohash.org/officiaarchitectoadipisci.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (7, 885, 'https://robohash.org/occaecatibeataeitaque.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (5, 301, 'https://robohash.org/adoccaecatiadipisci.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (2, 10, 'https://robohash.org/veniamrepellateveniet.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (8, 708, 'https://robohash.org/saepeutvoluptatem.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (8, 327, 'https://robohash.org/autofficiisharum.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (3, 482, 'https://robohash.org/ducimusaliquidlaboriosam.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (2, 16, 'https://robohash.org/perferendisquiaoptio.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (9, 106, 'https://robohash.org/molestiaedelenitiassumenda.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (3, 369, 'https://robohash.org/esteaqui.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (7, 173, 'https://robohash.org/suntquisit.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (2, 166, 'https://robohash.org/suntsitqui.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (7, 87, 'https://robohash.org/odiosimiliquemaiores.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (5, 704, 'https://robohash.org/minimanostrumfacilis.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (6, 193, 'https://robohash.org/fugiteligendiaut.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (2, 284, 'https://robohash.org/quiquisodit.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (5, 414, 'https://robohash.org/eosautemexplicabo.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (6, 530, 'https://robohash.org/molestiasblanditiisiusto.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (1, 777, 'https://robohash.org/natusadreiciendis.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (10, 157, 'https://robohash.org/sintfuganemo.png?size=50x50&set=set1');
-insert into photos (id_utilisateur, nombre_like, url_photo) values (4, 817, 'https://robohash.org/sedaspernaturpossimus.png?size=50x50&set=set1');
+
+
+
+
+
+insert into photos (id_utilisateur,  url_photo) values (3, 'https://robohash.org/quidemquisquamfacere.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (9,  'https://robohash.org/sitsequiomnis.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (10,  'https://robohash.org/omnisaliascupiditate.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (7,  'https://robohash.org/beataevoluptaset.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (8,  'https://robohash.org/natusporroest.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (5,  'https://robohash.org/autinconsectetur.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (7,  'https://robohash.org/dolorvelitquas.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (8,  'https://robohash.org/recusandaequosaut.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (3,  'https://robohash.org/aspernaturetet.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (10,  'https://robohash.org/officiaarchitectoadipisci.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (7,  'https://robohash.org/occaecatibeataeitaque.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (5,  'https://robohash.org/adoccaecatiadipisci.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (2, 'https://robohash.org/veniamrepellateveniet.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (8,  'https://robohash.org/saepeutvoluptatem.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (8,  'https://robohash.org/autofficiisharum.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (3,  'https://robohash.org/ducimusaliquidlaboriosam.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (2, 'https://robohash.org/perferendisquiaoptio.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (9,  'https://robohash.org/molestiaedelenitiassumenda.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (3,  'https://robohash.org/esteaqui.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (7,  'https://robohash.org/suntquisit.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (2,  'https://robohash.org/suntsitqui.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (7, 'https://robohash.org/odiosimiliquemaiores.png?size=50x50&set=set1');
+insert into photos (id_utilisateur,  url_photo) values (5, 'https://robohash.org/minimanostrumfacilis.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (6, 'https://robohash.org/fugiteligendiaut.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (2, 'https://robohash.org/quiquisodit.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (5, 'https://robohash.org/eosautemexplicabo.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (6, 'https://robohash.org/molestiasblanditiisiusto.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (1,  'https://robohash.org/natusadreiciendis.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (10,  'https://robohash.org/sintfuganemo.png?size=50x50&set=set1');
+insert into photos (id_utilisateur, url_photo) values (4,  'https://robohash.org/sedaspernaturpossimus.png?size=50x50&set=set1');
 
 -- 4. Pour tous les commentaires, montrer le contenu et le username de l'auteur
 SELECT comments.commentaire, utilisateurs.username from comments join utilisateurs on comments.id_utilisateur = utilisateurs.id;
