@@ -13,9 +13,9 @@ CREATE TABLE utilisateurs(
 CREATE TABLE photos(
     id integer auto_increment not null primary key,
     url_photo varchar(30) not null,
-    nombre_like integer,
+    nombre_like integer, 
     id_utilisateur integer, 
-    Foreign key (id_utilisateur) references utilisateurs(id) on delete set null,
+    Foreign key (id_utilisateur) references utilisateurs(id) on delete set null
 );
 CREATE TABLE likes(
     id integer auto_increment not null primary key,
@@ -194,7 +194,7 @@ insert into photos (id_utilisateur, url_photo) values (4,  'https://robohash.org
 SELECT comments.commentaire, utilisateurs.username from comments join utilisateurs on comments.id_utilisateur = utilisateurs.id;
 
 --5. Pour chaque commentaire, afficher son contenu et l'url de la photo à laquel le commentaire a été ajouté
-SELECT comments.commentaire, photos.url_photo from comments join utilisateurs on comments.id_utilisateur = utilisateurs.id join photos on photos.id_utilisateur = utilisateurs.id;
+SELECT comments.commentaire, photos.url_photo from comments join photos on photos.id_utilisateur = comments.id_utilisateur;
 
 --6. Afficher l'url de chaque photo et le nom d'utilisateur de l'auteur
 SELECT utilisateurs.username, photos.url_photo from photos join utilisateurs on photos.id_utilisateur = utilisateurs.id;
@@ -204,7 +204,7 @@ SELECT comments.commentaire, utilisateurs.username, photos.url_photo from commen
 
 -- 8 Trouver tous les url des photos ainsi que tous les commentaires qui ont été posté par l'auteur de la photo
 
-SELECT photos.url_photo, comments.commentaire from comments join photos on photos.id_utilisateur = utilisateurs.id where photos.id_utilisateur = comments.id_utilisateur;
+SELECT photos.url_photo, comments.commentaire from comments join photos on photos.id_utilisateur = comments.id_utilisateur where photos.id_utilisateur = comments.id_utilisateur;
 
 --9. A l'exercice précedent afficher aussi le nom de l'utilisateur qui a commenté ses propres photos
 SELECT utilisateurs.username,photos.url_photo, comments.commentaire from comments join utilisateurs on comments.id_utilisateur = utilisateurs.id join photos on photos.id_utilisateur = utilisateurs.id where photos.id_utilisateur = comments.id_utilisateur;
